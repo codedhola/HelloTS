@@ -1,3 +1,2 @@
-# HelloJS
-This is a repo based on 50+ javascript projects
-project loadind...
+# HelloTS
+Beginning typescript
