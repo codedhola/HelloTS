@@ -14,6 +14,9 @@ employees = [
     [2, 'John'],
     [3, 'Jill'],
 ];
+// literal types (just like enums)
+let work;
+work = "developer";
 // Enums
 var gender;
 (function (gender) {
@@ -42,11 +45,29 @@ const hammad = {
     remote: true
 };
 // OOP
-class users {
+class Users {
     constructor(username, email) {
         this.username = username;
         this.email = email;
     }
 }
-const hopkins = new users("hopkins", "hopkin@gmail.com");
+const hopkins = new Users("hopkins", "hopkin@gmail.com");
 console.log(hopkins);
+class Admin extends Users {
+    constructor(username, email, role) {
+        super(username, email);
+        this.role = []; // can only be assessed in the class
+    }
+    addRoles(role) {
+        return this.role.push(role); // add to the protected instance of the class
+    }
+}
+const jonas = new Admin("Jonas", "jonas@natours.io", "super admin");
+const joeDesigns = new Admin("joe", "joe@gmail.com", "designer");
+console.log(joeDesigns.addRoles("designer"));
+// GENERICS
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(['brad', 'John', 'Jill']);

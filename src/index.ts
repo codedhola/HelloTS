@@ -20,6 +20,10 @@ employees = [
   [3, 'Jill'],
 ]
 
+// literal types (just like enums)
+let work: "developer" | "designer";
+work = "developer"
+
 // Enums
 enum gender {
     male = "male",
@@ -83,14 +87,22 @@ const hopkins = new Users("hopkins", "hopkin@gmail.com")
 console.log(hopkins)
 
 class Admin extends Users {
-    protected role: string
+    protected role: string[] = [] // can only be assessed in the class
     constructor(username: string, email: string, role: string){
         super(username, email)
-        this.role = role
+    }
+
+    addRoles(role: string){
+        return this.role.push(role) // add to the protected instance of the class
     }
 }
 
 const jonas = new Admin("Jonas", "jonas@natours.io", "super admin")
+
+const joeDesigns = new Admin("joe", "joe@gmail.com", "designer")
+
+console.log(joeDesigns.addRoles("designer"))
+
 
 // GENERICS
 function getArray<T>(items: T[]): T[] {
