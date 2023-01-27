@@ -1,0 +1,25 @@
+{
+  "name": "typescript-crud",
+  "version": "1.0.0",
+  "description": "A Crud starter for typescript",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codedhola/HelloTS.git"
+  },
+  "keywords": [
+    "typescript",
+    "nodejs",
+    "crud",
+    "rest-api"
+  ],
+  "author": "coded hola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codedhola/HelloTS/issues"
+  },
+  "homepage": "https://github.com/codedhola/HelloTS#readme"
+}
