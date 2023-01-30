@@ -55,3 +55,11 @@ export const editArtist = async (req: Request, res: Response) => {
         }
     })
 }
+
+// @Edit an artist  => '/api/v1/artist/:id'
+export const deleteArtist = async (req: Request, res: Response) => {
+    const id: string = req.params.id
+    const response: QueryResult = await pool.query(DB.deleteArtist, [id])
+    
+    res.status(204).json()
+}

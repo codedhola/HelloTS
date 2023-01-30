@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.editArtist = exports.createArtist = exports.getAnArtist = exports.getAllArtist = void 0;
+exports.deleteArtist = exports.editArtist = exports.createArtist = exports.getAnArtist = exports.getAllArtist = void 0;
 const db_1 = require("./../config/db");
 const artistQuery_1 = __importDefault(require("./../database/queries/artistQuery"));
 // @get All artist => '/api/v1/artist'
@@ -64,3 +64,10 @@ const editArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     });
 });
 exports.editArtist = editArtist;
+// @Edit an artist  => '/api/v1/artist/:id'
+const deleteArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
+    const response = yield db_1.pool.query(artistQuery_1.default.deleteArtist, [id]);
+    res.status(204).json();
+});
+exports.deleteArtist = deleteArtist;
