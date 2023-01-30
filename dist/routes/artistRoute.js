@@ -6,6 +6,6 @@ const router = (0, express_1.Router)();
 router.get('/', artistController_1.getAllArtist);
 router.post('/', artistController_1.createArtist);
 router.get('/:id', artistController_1.getAnArtist);
-router.patch('/:id', artistController_1.createArtist);
+router.patch('/:id', artistController_1.editArtist);
 router.delete('/:id', artistController_1.deleteArtist);
 exports.default = router;

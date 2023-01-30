@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllArtist, getAnArtist, createArtist, deleteArtist } from "./../controllers/artistController";
+import { getAllArtist, getAnArtist, createArtist, editArtist, deleteArtist } from "./../controllers/artistController";
 
 const router = Router();
 
@@ -9,7 +9,7 @@ router.post('/', createArtist)
 
 router.get('/:id', getAnArtist)
 
-router.patch('/:id', createArtist)
+router.patch('/:id', editArtist)
 
 router.delete('/:id', deleteArtist)
  
