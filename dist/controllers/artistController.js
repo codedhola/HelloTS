@@ -12,13 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createArtist = exports.getAnArtist = exports.getAllArtist = void 0;
+exports.editArtist = exports.createArtist = exports.getAnArtist = exports.getAllArtist = void 0;
 const db_1 = require("./../config/db");
 const artistQuery_1 = __importDefault(require("./../database/queries/artistQuery"));
-// @get All artist
+// @get All artist => '/api/v1/artist'
 const getAllArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const response = yield db_1.pool.query(artistQuery_1.default.getAllArtist);
-    console.log(response);
     res.status(200).json({
         status: "Success",
         results: response.rows.length,
@@ -28,11 +27,10 @@ const getAllArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     });
 });
 exports.getAllArtist = getAllArtist;
-// @get a single artist
+// @get a single artist => '/api/v1/artist/;id'
 const getAnArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params.id;
     const response = yield db_1.pool.query(artistQuery_1.default.getAnArtist, [id]);
-    console.log(response);
     res.status(200).json({
         status: "Success",
         data: {
@@ -41,11 +39,10 @@ const getAnArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     });
 });
 exports.getAnArtist = getAnArtist;
-// @create a artist
+// @create an artist  => '/api/v1/artist'
 const createArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { name, dob, country } = req.body;
     const response = yield db_1.pool.query(artistQuery_1.default.createArtist, [name, dob, country]);
-    console.log(response.rowCount);
     res.status(200).json({
         status: "Success",
         data: {
@@ -54,3 +51,16 @@ const createArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     });
 });
 exports.createArtist = createArtist;
+// @Edit an artist  => '/api/v1/artist/:id'
+const editArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { name, dob, country } = req.body;
+    const id = req.params.id;
+    const response = yield db_1.pool.query(artistQuery_1.default.editArtist, [name, dob, country, id]);
+    res.status(200).json({
+        status: "Success",
+        data: {
+            data: response.rows[0]
+        }
+    });
+});
+exports.editArtist = editArtist;

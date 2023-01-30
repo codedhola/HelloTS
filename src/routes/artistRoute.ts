@@ -9,5 +9,7 @@ router.post('/', createArtist)
 
 router.get('/:id', getAnArtist)
 
+router.patch('/:id', createArtist)
 
-export default router;
+ 
+export default router; 
