@@ -1,7 +1,7 @@
-import { Router } from "express";
-import { getAllArtist, getAnArtist, createArtist, editArtist, deleteArtist } from "./../controllers/artistController";
+import { Router } from "express"
+import { getAllArtist, getAnArtist, createArtist, editArtist, deleteArtist } from "./../controllers/artistController"
 
-const router = Router();
+const router = Router()
 
 router.get('/', getAllArtist)
 
@@ -13,4 +13,4 @@ router.patch('/:id', editArtist)
 
 router.delete('/:id', deleteArtist)
  
-export default router; 
+export default router

@@ -79,7 +79,6 @@ exports.createArtist = createArtist;
 const editArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { name, dob, country } = req.body;
     const id = req.params.id;
-    console.log(name);
     try {
         const response = yield db_1.pool.query(artistQuery_1.default.editArtist, [name, dob, country, id]);
         console.log(response);

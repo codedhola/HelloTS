@@ -70,7 +70,6 @@ export const createArtist = async (req: Request, res: Response): Promise<Respons
 export const editArtist = async (req: Request, res: Response): Promise<Response> => {
     const { name, dob, country} = req.body
     const id: string = req.params.id
-    console.log(name) 
     try{
         const response: QueryResult = await pool.query(DB.editArtist, [name, dob, country, id])
         console.log(response)
