@@ -8,8 +8,8 @@ app.use(express.json())
 app.use('/api/v1/artist', artistRoute)
 app.use('/api/v1/music', musicRoute)
 
-const port: number = 5050
-app.listen(port, () => {
-    console.log("app running on port " + port)
+const PORT: number = 5050
+app.listen(PORT, () => {
+    console.log("app running on port " + PORT)
 })
 

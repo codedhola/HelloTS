@@ -19,8 +19,7 @@ export const getAllArtist = async (req: Request, res: Response): Promise<Respons
         return res.status(500).json({
             status: "Failed",
             message: err
-        }
-        )
+        })
     }
 }
 
@@ -40,8 +39,7 @@ export const getAnArtist = async (req: Request, res: Response): Promise<Response
         return res.status(500).json({
             status: "Failed",
             message: err
-        }
-        )
+        })
     }
 }
 
@@ -61,8 +59,7 @@ export const createArtist = async (req: Request, res: Response): Promise<Respons
         return res.status(500).json({
             status: "Failed",
             message: err
-        }
-        )
+        })
     }
 }
 
